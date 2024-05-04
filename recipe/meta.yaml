@@ -1,13 +1,13 @@
 {% set name = "django-health-check" %}
-{% set version = "3.18.1" %}
+{% set version = "3.18.2" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/django-health-check-{{ version }}.tar.gz
-  sha256: 44552d55ae8950c9548d3b90f9d9fd5570b57446a19b2a8e674c82f993cb7a2c
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 21235120f8d756fa75ba430d0b0dbb04620fbd7bfac92ed6a0b911915ba38918
 
 build:
   noarch: python
