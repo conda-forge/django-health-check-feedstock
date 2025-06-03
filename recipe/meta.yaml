@@ -1,5 +1,5 @@
 {% set name = "django-health-check" %}
-{% set version = "3.18.3" %}
+{% set version = "3.19.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/django_health_check-{{ version }}.tar.gz
-  sha256: 18b75daca4551c69a43f804f9e41e23f5f5fb9efd06cf6a313b3d5031bb87bd0
+  sha256: 1a995ed4fa08a776beedff65f8f1ec0c22fb6764493f33fb1307fe4c6f23b8c3
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -21,8 +21,13 @@ requirements:
     - pip
     - setuptools
   run:
+    - amqp
+    - celery
+    - kombu
+    - psutil
+    - redis-py
     - python >={{ python_min }}
-    - django >=2.2
+    - django >=4.2
 
 test:
   imports:
