@@ -17,17 +17,18 @@ build:
 requirements:
   host:
     - python {{ python_min }}
-    - setuptools-scm
+    - flit-core >=3.2
+    - flit-scm
+    - wheel
     - pip
-    - setuptools
   run:
+    - python >={{ python_min }}
+    - django >=4.2
     - amqp
     - celery
     - kombu
     - psutil
     - redis-py
-    - python >={{ python_min }}
-    - django >=4.2
 
 test:
   imports:
