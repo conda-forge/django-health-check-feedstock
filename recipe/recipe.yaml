@@ -1,8 +1,9 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
 schema_version: 1
 
 context:
   name: django-health-check
-  version: 3.20.0
+  version: "3.20.0"
 
 package:
   name: ${{ name|lower }}
@@ -25,7 +26,7 @@ requirements:
     - wheel
     - pip
   run:
-    - python >=${{ python_min }}
+    - python >=${{ python_min }},<4.0
     - django >=4.2
     - amqp
     - celery
@@ -38,12 +39,7 @@ tests:
       imports:
         - health_check
       python_version: ${{ python_min }}.*
-  - requirements:
-      run:
-        - pip
-        - python ${{ python_min }}.*
-    script:
-      - pip check
+      pip_check: true
 
 about:
   summary: Run checks on services like databases, queue servers, celery processes, etc.
