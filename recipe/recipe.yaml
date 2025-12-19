@@ -3,7 +3,7 @@ schema_version: 1
 
 context:
   name: django-health-check
-  version: "3.20.0"
+  version: "3.20.1"
 
 package:
   name: ${{ name|lower }}
@@ -11,10 +11,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/django_health_check-${{ version }}.tar.gz
-  sha256: cd69ac5facf73fe7241d9492d939b57bd20e24f46c4edea91e6a900bf22c2d8e
+  sha256: fd261ef14eacc4ba8754b5603b8bf55d51fbfe9eaa085720f1e8484fa63a7431
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
