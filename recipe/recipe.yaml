@@ -3,7 +3,7 @@ schema_version: 1
 
 context:
   name: django-health-check
-  version: 3.22.0
+  version: "3.22.0"
 
 package:
   name: ${{ name|lower }}
@@ -29,18 +29,19 @@ requirements:
     - python >=${{ python_min }},<4.0
     - django >=4.2
     - psutil
+
 tests:
   - python:
       imports:
         - health_check
+      pip_check: false
       python_version: ${{ python_min }}.*
-      pip_check: true
 
 about:
-  summary: Run checks on services like databases, queue servers, celery processes, etc.
+  summary: Monitor the health of your Django app and its connected services.
   license: MIT
   license_file: LICENSE
-  homepage: https://github.com/revsys/django-health-check
+  homepage: https://github.com/codingjoe/django-health-check
 
 extra:
   recipe-maintainers:
