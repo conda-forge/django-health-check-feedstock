@@ -31,11 +31,13 @@ requirements:
     - psutil
 
 tests:
-  - python:
-      imports:
-        - health_check
-      pip_check: false
-      python_version: ${{ python_min }}.*
+  - requirements:
+      run:
+        - pip
+        - python ${{ python_min }}.*
+    script:
+      - python -c "import django; from django.conf import settings; settings.configure(); django.setup(); import health_check"
+      - pip check
 
 about:
   summary: Monitor the health of your Django app and its connected services.
