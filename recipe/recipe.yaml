@@ -3,7 +3,7 @@ schema_version: 1
 
 context:
   name: django-health-check
-  version: "3.20.8"
+  version: "3.22.0"
 
 package:
   name: ${{ name|lower }}
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/django_health_check-${{ version }}.tar.gz
-  sha256: bbb7286af4b4e2079d262eeb3e68014c8980f8fcfbd295bca1ec31cbf827b83c
+  sha256: b93897c09d47fcc990fff480f28e72e676aee331808c14f0bdcfb8d64de623b1
 
 build:
   number: 0
@@ -28,24 +28,22 @@ requirements:
   run:
     - python >=${{ python_min }},<4.0
     - django >=4.2
-    - amqp
-    - celery
-    - kombu
     - psutil
-    - redis-py
 
 tests:
-  - python:
-      imports:
-        - health_check
-      python_version: ${{ python_min }}.*
-      pip_check: true
+  - requirements:
+      run:
+        - pip
+        - python ${{ python_min }}.*
+    script:
+      - python -c "import django; from django.conf import settings; settings.configure(); django.setup(); import health_check"
+      - pip check
 
 about:
-  summary: Run checks on services like databases, queue servers, celery processes, etc.
+  summary: Monitor the health of your Django app and its connected services.
   license: MIT
   license_file: LICENSE
-  homepage: https://github.com/revsys/django-health-check
+  homepage: https://github.com/codingjoe/django-health-check
 
 extra:
   recipe-maintainers:
