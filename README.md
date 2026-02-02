@@ -3,11 +3,11 @@ About django-health-check-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/django-health-check-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/revsys/django-health-check
+Home: https://github.com/codingjoe/django-health-check
 
 Package license: MIT
 
-Summary: Run checks on services like databases, queue servers, celery processes, etc.
+Summary: Monitor the health of your Django app and its connected services.
 
 Current build status
 ====================
