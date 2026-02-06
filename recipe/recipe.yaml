@@ -3,7 +3,7 @@ schema_version: 1
 
 context:
   name: django-health-check
-  version: 3.23.3
+  version: 3.23.4
 
 package:
   name: ${{ name|lower }}
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/django_health_check-${{ version }}.tar.gz
-  sha256: 7b5e6e6c8b2254190a65cf497c292a4af407a3d52b316f4c801601ce2b20de94
+  sha256: 49556bd8b1beaf6239eb1ca3f6b673e692f3c263504287d527b5941cc6b12513
 
 build:
   number: 0
@@ -29,10 +29,6 @@ requirements:
     - python >=${{ python_min }},<4.0
     - django >=4.2
     - psutil
-    - redis-py
-    - celery
-    - kombu
-    - amqp
 tests:
   - requirements:
       run:
