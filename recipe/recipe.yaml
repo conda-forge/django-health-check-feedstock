@@ -3,7 +3,7 @@ schema_version: 1
 
 context:
   name: django-health-check
-  version: 4.2.1
+  version: 4.2.2
 
 package:
   name: ${{ name|lower }}
@@ -11,7 +11,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/django_health_check-${{ version }}.tar.gz
-  sha256: aa05f57d6b01fe502842273aaa944e988b85d1f58e3ea67b6f98c5f9808a530a
+  sha256: 66f9861be1c53607fd26037eb8c9dae58db8c23e34af0792bc6f9d78f28fa64c
 
 build:
   number: 0
@@ -29,7 +29,12 @@ requirements:
     - python >=${{ python_min }},<4.0
     - django >=5.2
     - dnspython >=2.0.0
-    - psutil
+    - feedparser
+    - aio-pika
+    - celery
+    - python-confluent-kafka
+    - httpx
+    - redis-py
 tests:
   - requirements:
       run:
