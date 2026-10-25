@@ -4,7 +4,7 @@ schema_version: 1
 context:
   name: django-health-check
   version: 4.11.1
-  python_min: 3.14
+  python_min: "3.14"
 
 package:
   name: ${{ name|lower }}
