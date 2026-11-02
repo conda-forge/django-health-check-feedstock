@@ -3,7 +3,7 @@ schema_version: 1
 
 context:
   name: django-health-check
-  version: "4.11.3"
+  version: "4.11.4"
   python_min: "3.14"
 
 package:
@@ -12,7 +12,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/django_health_check-${{ version }}.tar.gz
-  sha256: 1db570806afb98160fd1b0be6286c4b90074696198649393677f0892377499dd
+  sha256: 47eb41f72edd307c1b6d70b71e10930ffb7ffcb5bbdc208a4dff86e7abfc674d
 
 build:
   number: 0
